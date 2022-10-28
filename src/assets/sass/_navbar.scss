@@ -1,0 +1,22 @@
+@use 'variables';
+@use 'mixins';
+
+$selector : '.nav';
+
+// *** Navigation
+#{$selector} {
+    background: variables.$primary-color;
+
+    &__container {
+        width: 90%;
+        margin: 0 auto;
+        list-style: none;
+        @include mixins.make-flexbox(space-between);
+        height: 50px;
+    }
+
+    &__link {
+        text-decoration: none;
+        color: #fff;
+    }
+}

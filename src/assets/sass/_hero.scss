@@ -1,0 +1,39 @@
+@use 'mixins';
+
+
+.hero {
+    &__container {
+        height: 320px;
+        background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/Header.jpg');
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        @include mixins.make-flexbox(center);
+    }
+
+    &__texts {
+        width: 90%;
+        margin: 0 auto;
+        text-align: center;
+        color: white;
+
+        hr {
+            height: 1px;
+            background: #ccc;
+            border: none;
+            margin: 30px auto;
+        }
+    }
+
+    &__title {
+        font-size: 3rem;
+        font-weight: bold;
+        margin: 8px 0;
+    }
+
+    &__subtitle {
+        font-size: 1.7rem;
+        font-weight: normal;
+    }
+
+}

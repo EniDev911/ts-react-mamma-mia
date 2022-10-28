@@ -1,0 +1,28 @@
+@use 'variables';
+
+.container {
+    width: 90%;
+    margin: 30px auto;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.bg-primary {
+    background-color: variables.$primary-color;
+}
+
+.bg-secondary {
+    background: variables.$secondary-color;
+}
+
+.text-center {
+    text-align: center;
+} 
+
+.fs-2 {
+    font-size: 26px;
+}

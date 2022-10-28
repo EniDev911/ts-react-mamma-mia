@@ -1,0 +1,68 @@
+@use 'mixins';
+
+
+article {
+    position: relative;
+    @include mixins.make-flexbox(center, start, column);
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+    overflow: hidden;
+    box-shadow: 1px 1px 6px #00000020;
+    figure {
+        position: relative;
+
+        height: auto;
+        overflow: hidden;
+
+        img {
+            width: 100%;
+            height: 100%;
+            transition: all 0.42s;
+
+            &:hover {
+                width: 100%;
+                transform: scale(1.1);
+            }
+        }
+    }
+
+    div {
+        width: 100%;
+        padding: 20px;
+
+        h3 {
+            font-size: 1.7rem;
+        }
+
+        hr {
+            height: 2px;
+            background: #ccc;
+            border: none;
+            width: 90%;
+            margin: 20px auto;
+        }
+
+        p {
+            font-weight: bolder;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        ul {
+            list-style: none;
+            font-size: 1.2rem;
+        }
+        div {
+            @include mixins.make-flexbox(space-between);
+            button {
+                border: none;
+                padding: 5px 10px;
+                border-radius: 4px;
+                color: #fff;
+                cursor:pointer;
+            }
+        }
+
+    }
+}
