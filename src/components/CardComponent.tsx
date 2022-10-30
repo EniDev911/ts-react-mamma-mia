@@ -1,4 +1,5 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 import { IPizza } from '../interfaces/interface'
 
 type CardComponentProps = {
@@ -6,7 +7,7 @@ type CardComponentProps = {
 }
 
 const CardComponent: React.FC<CardComponentProps> = ({ pizza }) => {
-
+    const navigate = useNavigate()
     return (
         <article>
             <figure>
@@ -26,7 +27,7 @@ const CardComponent: React.FC<CardComponentProps> = ({ pizza }) => {
                 <hr />
                 <p className='text-center fs-2'>$ {pizza.price}</p>
                 <div>
-                    <button className='bg-primary'>Ver más 👀</button>
+                    <button className='bg-primary' onClick={() => navigate('/pizza/' + pizza.id)}>Ver más 👀</button>
                     <button className='bg-secondary'>Añadir 🛒</button>
                 </div>
             </div>

@@ -1,11 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 import CardComponent from '../components/CardComponent';
-import { usePizzasContext } from '../context/AppCtx';
+import { useAppContext } from '../context/AppCtx';
+
 
 const Home: React.FC = () => {
-    const pizzas = usePizzasContext();
-
-
+    const { pizzas } = useAppContext();
     return (
         <>
             <section className="hero__container">
@@ -17,7 +16,7 @@ const Home: React.FC = () => {
             </section>
             <div className="container">
                 <div className="grid">
-                    {pizzas?.map(pizza => <CardComponent pizza={pizza} />)}
+                    {pizzas?.map(pizza  => <CardComponent key={pizza.id} pizza={pizza} />)}
                 </div>
             </div>
         </>
