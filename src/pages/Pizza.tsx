@@ -13,30 +13,39 @@ const Pizza: React.FC = () => {
   const pizza = getPizza(id as string) as IPizza;
 
   return (
-    <div className="container">
-        <div style={{display: 'flex', border: '1px solid black'}}>
-      <figure>
-        <img src={pizza.img} alt={pizza.name} style={{width: '100%', height: '100%'}}/>
-      </figure>
-      <div style={{display: 'flex', flexDirection: 'column', padding: '20px'}}>
-      <h3>{pizza.name}</h3>
-      <hr />
-      <p>{pizza.desc}</p>
-      <p>Ingredientes</p>
-      <ul>
-        {pizza?.ingredients.map((ingredient, index) => (
-          <li key={index.toString()}>🍕 {ingredient}</li>
-        ))}
-      </ul>
-      <div>
-        <p>$ {pizza.price || 0}</p>
-        <button type="button" onClick={() => increaseCartQuantity(pizza.id)}>
-          Añadir 🛒
-        </button>
+      <div
+        className="detail__product"
+      >
+        <figure className="detail__product-figure">
+          <img
+            src={pizza.img}
+            alt={pizza.name}
+          />
+        </figure>
+        <div
+          className="detail__body"
+        >
+          <h3 className="detail__body-title">{pizza.name}</h3>
+          <div className="detail__body-text">
+          <p>{pizza.desc}</p>
+          <p>Ingredientes</p>
+          <ul>
+            {pizza?.ingredients.map((ingredient, index) => (
+              <li key={index.toString()}>🍕 {ingredient}</li>
+            ))}
+          </ul>
+         </div>   
+          <div className="detail__body-footer">
+            <p className="fs-2">$ {pizza.price || 0}</p>
+            <button
+              className="btn bg-secondary"
+              onClick={() => increaseCartQuantity(pizza.id)}
+            >
+              Añadir 🛒
+            </button>
+          </div>
         </div>
       </div>
-      </div>
-    </div>
   );
 };
 

@@ -23,6 +23,11 @@ $selector : '.detail';
 
   &__figure {
     @include mixins.make-flexbox(space-between);
+    height: 90px;
+    img {
+      height: 100%;
+      width: 120px;
+    }
     h4 {
       text-transform: capitalize;
       margin-left: 10px;
@@ -30,29 +35,15 @@ $selector : '.detail';
   }
   &__actions {
     @include mixins.make-flexbox(space-between);
+    
     button {
-      border: none;
-      font-size: 21px;
-      border-radius: 4px;
-      color: #fff;
-      cursor: pointer;
-      padding: 3px 10px;
       margin: 0 6px;
     }
   }
   &__item-total {
     font-weight: bolder;
   }
-  button {
-    border: none;
-    padding: 6px;
-    border-radius: 6px;
-    color: #fff;
-    cursor: pointer;
-    &:hover {
-      background: #000;
-    }
-  }
+
   &__total {
     font-size: 20px;
     font-weight: bolder;

@@ -30,13 +30,13 @@ const CardItemPizza : React.FC<CardItemPizzaProps> = ({ pizza }) => {
         <p className="text-center fs-2">$ {pizza.price}</p>
         <div>
           <button
-            className="bg-primary"
+            className="btn bg-primary"
             onClick={() => navigate("/pizza/" + pizza.id)}
           >
             Ver más 👀
           </button>
           <button
-            className="bg-secondary"
+            className="btn bg-secondary"
             onClick={() => increaseCartQuantity(pizza.id)}
           >
             Añadir 🛒

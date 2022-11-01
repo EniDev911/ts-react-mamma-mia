@@ -17,21 +17,21 @@ const CartItem: React.FC<CartItemProps> = ({ id, quantity }) => {
     <article className="detail__item">
       <div className="detail__figure">
       <figure>
-        <img src={item.img} alt={item.name} style={{ width: "125px" }} />
+        <img src={item.img} alt={item.name} />
       </figure>
         <h4>{item.name}</h4>
       </div>
       <div className="detail__actions">
         <div className="detail__item-total">${item.price * quantity}</div>
         <button
-          className="bg-primary"
+          className="btn bg-primary"
           onClick={() => increaseCartQuantity(item.id)}
         >
           +
         </button>
         {quantity}
         <button
-          className="bg-secondary"
+          className="btn bg-secondary"
           onClick={() => decreaseCartQuantity(item.id)}
         >
           -
