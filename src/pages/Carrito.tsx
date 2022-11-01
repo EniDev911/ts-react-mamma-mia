@@ -3,7 +3,6 @@ import CartItem from "../components/CartItemComponent";
 import { useAppContext } from "../context/AppCtx";
 
 const Carrito: React.FC = () => {
-
   const { cartItems, totalCart } = useAppContext();
 
   return (
@@ -19,7 +18,7 @@ const Carrito: React.FC = () => {
           onClick={() => {
             if (
               confirm(
-                `¿Estás seguro de llevar llevar la compra por $${totalCart(
+                `¿Estás seguro de llevar la compra por $${totalCart(
                   cartItems
                 )}`
               )
