@@ -1,13 +1,14 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useAppContext } from "../context/AppCtx";
+import {formatValue} from '../utilities/format'
 import { IPizza } from "../interfaces/@types";
 
 type CardItemPizzaProps = {
   pizza: IPizza;
 };
 
-const CardItemPizza : React.FC<CardItemPizzaProps> = ({ pizza }) => {
+const CardItemPizza: React.FC<CardItemPizzaProps> = ({ pizza }) => {
   const navigate = useNavigate();
 
   const { increaseCartQuantity } = useAppContext();
@@ -27,7 +28,7 @@ const CardItemPizza : React.FC<CardItemPizzaProps> = ({ pizza }) => {
           ))}
         </ul>
         <hr />
-        <p className="text-center fs-2">$ {pizza.price}</p>
+        <p className="text-center fs-2">$ {formatValue(pizza.price)}</p>
         <div>
           <button
             className="btn bg-primary"

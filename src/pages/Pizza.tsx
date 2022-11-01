@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import { useAppContext } from "../context/AppCtx";
 import { IPizza } from "../interfaces/@types";
+import { formatValue } from "../utilities/format";
 
 type PizzaParams = {
   id?: string;
@@ -36,7 +37,7 @@ const Pizza: React.FC = () => {
           </ul>
          </div>   
           <div className="detail__body-footer">
-            <p className="fs-2">$ {pizza.price || 0}</p>
+            <p className="fs-2">$ {formatValue(pizza.price)}</p>
             <button
               className="btn bg-secondary"
               onClick={() => increaseCartQuantity(pizza.id)}

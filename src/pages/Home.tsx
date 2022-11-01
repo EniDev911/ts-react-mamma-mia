@@ -3,7 +3,6 @@ import CardComponent from "../components/CardComponent";
 import { useAppContext } from "../context/AppCtx";
 
 const Home: React.FC = () => {
-    
   const { pizzas } = useAppContext();
   return (
     <>

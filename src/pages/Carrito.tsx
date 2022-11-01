@@ -20,7 +20,7 @@ const Carrito: React.FC = () => {
               confirm(
                 `¿Estás seguro de llevar la compra por $${totalCart(
                   cartItems
-                )}`
+                )} ?`
               )
             )
               return alert("Pagado");

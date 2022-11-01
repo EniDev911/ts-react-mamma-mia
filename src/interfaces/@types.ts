@@ -18,5 +18,5 @@ export interface IApp {
     increaseCartQuantity: (id: string) => void,
     decreaseCartQuantity: (id: string) => void,
     cartItems: ICart[],
-    totalCart: (items: ICart[]) => number
+    totalCart: (items: ICart[]) => string
 }

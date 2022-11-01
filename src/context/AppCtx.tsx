@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
 import { IApp, IPizza, ICart } from "../interfaces/@types";
+import {formatValue} from '../utilities/format'
 
 const AppContext = createContext<IApp>({} as IApp);
 
@@ -71,10 +72,11 @@ const AppProvider: React.FC<AppCtxProviderProps> = ({ children }) => {
   };
 
   const totalCart = (items: ICart[]) => {
-    return items.reduce((total, cartItem) => {
+    const total = items.reduce((total, cartItem) => {
       const item = getPizza(cartItem.id);
       return total + (item?.price || 0) * cartItem.quantity;
     }, 0);
+    return formatValue(total);
   };
 
   useEffect(() => {
