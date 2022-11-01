@@ -28,7 +28,7 @@ const Pizza: React.FC = () => {
           <h3 className="detail__body-title">{pizza.name}</h3>
           <div className="detail__body-text">
           <p>{pizza.desc}</p>
-          <p>Ingredientes</p>
+          <p className="fw-b">Ingredientes:</p>
           <ul>
             {pizza?.ingredients.map((ingredient, index) => (
               <li key={index.toString()}>🍕 {ingredient}</li>
