@@ -6,7 +6,10 @@ $selector : '.nav';
 // ** Navigation
 #{$selector} {
     background: variables.$primary-color;
-
+    position: sticky;
+    width: 100%;
+    top: 0;
+    z-index: 999;
     &__container {
         width: 90%;
         margin: 0 auto;
