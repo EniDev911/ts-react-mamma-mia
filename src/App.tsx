@@ -12,9 +12,10 @@ function App() {
       <BrowserRouter basename="ts-react-mamma-mia">
         <Navigation />
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Home />} index/>
           <Route path="/pizza/:id" element={<Pizza />} />
           <Route path="/carrito" element={<Carrito />} />
+          <Route path="*" element={<Home />} />
         </Routes>
       </BrowserRouter>
     </AppProvider>

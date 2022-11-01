@@ -5,7 +5,8 @@ import { useAppContext } from "../context/AppCtx";
 
 const Navigation: React.FC = () => {
   const { cartItems, totalCart } = useAppContext();
-
+  const cartQuantity = cartItems.reduce((acc, item) => item.quantity + acc, 0);
+  
   return (
     <nav className="nav">
       <ul className="nav__container">
@@ -17,6 +18,10 @@ const Navigation: React.FC = () => {
         <li className="nav__item">
           <Link to="/carrito" className="nav__link">
             <img src={cartPng} alt="imagen carrito" />
+              {(cartQuantity > 0) 
+                ? <span className="nav__item-counter">{cartQuantity}</span>
+                : undefined 
+              }
           </Link>{" "}
           <span>$ {totalCart(cartItems)}</span>
         </li>

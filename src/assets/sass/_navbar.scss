@@ -19,10 +19,24 @@ $selector : '.nav';
     }
     &__item {
         @include mixins.make-flexbox();
+        position: relative;
         span {
             color: white;
             font-weight: bold;
         }
+    }
+    &__item-counter {
+        width: 1.5em;
+        height: 1.5em;
+        position: absolute;
+        top:0;
+        font-size: 1em;
+        left:0;
+        text-align: center;
+        background: rgb(209, 66, 97);
+        border-radius: 50%;
+        padding: 3px;
+        transform: translate(35%, -35%);
     }
     &__link {
         text-decoration: none;

@@ -13,7 +13,7 @@ const Carrito: React.FC = () => {
           <CartItem key={item.id} {...item} />
         ))}
         <p className="detail__total">Total: {totalCart(cartItems)}</p>
-        <button
+        {Number(totalCart(cartItems)) > 0 ?         <button
           className="btn bg-success"
           onClick={() => {
             if (
@@ -28,6 +28,8 @@ const Carrito: React.FC = () => {
         >
           Ir a pagar
         </button>
+        : undefined}
+
       </div>
     </section>
   );
