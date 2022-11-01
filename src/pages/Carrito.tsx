@@ -12,7 +12,8 @@ const Carrito: React.FC = () => {
                 cartItems.map(item => (
                   <CartItem key={item.id} {...item} />   
                 ))}
-                <p>Total: {totalCart(cartItems)}</p>
+                <p className="detail__total">Total: {totalCart(cartItems)}</p>
+                <button className="bg-success">Ir a pagar</button>
             </div>
         </section>
     )

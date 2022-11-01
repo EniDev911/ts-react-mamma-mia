@@ -17,7 +17,6 @@ const AppProvider: React.FC<AppCtxProviderProps> = ({ children }) => {
     const [pizzas, setPizzas] = useState<IPizza[]>([]);
     const [cartItems, setCartItems] = useState<ICart[]>([]);
 
-
     /**
      * 
      * @param {string} id > identificador único para buscar en catálogo
@@ -71,21 +70,20 @@ const AppProvider: React.FC<AppCtxProviderProps> = ({ children }) => {
             }
         })
     }
-
+    
     const totalCart = (items: ICart[]) => {
         return items.reduce((total, cartItem) => {
                     const item = getPizza(cartItem.id)
                     return total + (item?.price || 0) * cartItem.quantity 
                 }, 0)
     }
-    
+
     useEffect(() => {
         fetch('./pizzas.json')
             .then(res => res.json())
             .then(data => setPizzas(data))
             .catch(e => console.error(e.message))
-        console.log(cartItems)
-    }, [cartItems])
+    }, [])
 
     return (
         <AppContext.Provider value={{
