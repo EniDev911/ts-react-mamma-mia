@@ -1,7 +1,8 @@
 @use 'mixins';
 
+$selector : '.item';
 
-article {
+#{$selector} {
     position: relative;
     @include mixins.make-flexbox(center, start, column);
     border: 1px solid #ccc;
@@ -11,7 +12,7 @@ article {
     box-shadow: 1px 1px 6px #00000020;
     figure {
         position: relative;
-
+        width: 100%;
         height: auto;
         overflow: hidden;
 
@@ -62,7 +63,11 @@ article {
                 border-radius: 4px;
                 color: #fff;
                 cursor:pointer;
+                &:hover {
+                    background: #000;
+                }
             }
+
         }
 
     }

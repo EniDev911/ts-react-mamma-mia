@@ -3,7 +3,7 @@
 
 $selector : '.nav';
 
-// *** Navigation
+// ** Navigation
 #{$selector} {
     background: variables.$primary-color;
 
@@ -14,7 +14,13 @@ $selector : '.nav';
         @include mixins.make-flexbox(space-between);
         height: 50px;
     }
-
+    &__item {
+        @include mixins.make-flexbox();
+        span {
+            color: white;
+            font-weight: bold;
+        }
+    }
     &__link {
         text-decoration: none;
         color: #fff;
@@ -25,5 +31,6 @@ $selector : '.nav';
             height: 100%;
             filter: brightness(8);
         }
+        margin: 0 9px;
     }
 }

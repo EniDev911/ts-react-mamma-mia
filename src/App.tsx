@@ -2,6 +2,7 @@ import { ReactElement } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Navigation from './components/NavigationComponent'
 import AppProvider from './context/AppCtx'
+import Carrito from './pages/Carrito'
 import Home from './pages/Home'
 import Pizza from './pages/Pizza'
 
@@ -15,7 +16,7 @@ function App() {
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/pizza/:id' element={<Pizza/>} />
-          <Route path='/carrito' element={<h1>carrito</h1>} />
+          <Route path='/carrito' element={<Carrito/>} />
         </Routes>
       </BrowserRouter>
     </AppProvider>

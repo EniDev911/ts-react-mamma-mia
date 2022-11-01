@@ -3,7 +3,7 @@ import { IApp, IPizza, ICart } from '../interfaces/@types';
 
 const AppContext = createContext<IApp>({} as IApp);
 
-// custom hook
+// hooks
 export function useAppContext() {
     return useContext(AppContext) as IApp;
 }
@@ -17,14 +17,6 @@ const AppProvider: React.FC<AppCtxProviderProps> = ({ children }) => {
     const [pizzas, setPizzas] = useState<IPizza[]>([]);
     const [cartItems, setCartItems] = useState<ICart[]>([]);
 
-    /**
-     * 
-     * @param {string} id > identificador único para buscar la cantidad de ese item en el carrito
-     * @returns {number} > la cantidad del item encontrado o en su lugar 0
-     */
-    const getItemQuantity = (id: string): number => {
-        return cartItems.find(item => item.id === id)?.quantity || 0
-    }
 
     /**
      * 
@@ -48,6 +40,7 @@ const AppProvider: React.FC<AppCtxProviderProps> = ({ children }) => {
             } else {
                 return currItems.map(item => {
                     if (item.id === id){
+                        // al item encontrado se le incrementa en 1 su propiedad quantity
                         return {...item, quantity: item.quantity + 1};
                     } else {
                         return item
@@ -78,20 +71,30 @@ const AppProvider: React.FC<AppCtxProviderProps> = ({ children }) => {
             }
         })
     }
+
+    const totalCart = (items: ICart[]) => {
+        return items.reduce((total, cartItem) => {
+                    const item = getPizza(cartItem.id)
+                    return total + (item?.price || 0) * cartItem.quantity 
+                }, 0)
+    }
+    
     useEffect(() => {
         fetch('./pizzas.json')
             .then(res => res.json())
             .then(data => setPizzas(data))
             .catch(e => console.error(e.message))
-    }, [])
+        console.log(cartItems)
+    }, [cartItems])
 
     return (
         <AppContext.Provider value={{
             pizzas, 
             getPizza,
-            getItemQuantity,
+            totalCart,
             increaseCartQuantity,
-            decreaseCartQuantity}}>
+            decreaseCartQuantity,
+            cartItems}}>
             {children}
         </AppContext.Provider>
     )

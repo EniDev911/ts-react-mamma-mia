@@ -15,7 +15,8 @@ export interface ICart {
 export interface IApp {
     pizzas: IPizza[],
     getPizza: (id: string) => IPizza | void,
-    getItemQuantity: (id: string) => number,
     increaseCartQuantity: (id: string) => void,
-    decreaseCartQuantity: (id: string) => void
+    decreaseCartQuantity: (id: string) => void,
+    cartItems: ICart[],
+    totalCart: (items: ICart[]) => number
 }

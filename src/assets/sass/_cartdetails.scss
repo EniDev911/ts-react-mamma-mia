@@ -1,0 +1,16 @@
+@use 'variables';
+@use 'mixins';
+
+$selector : '.detail';
+
+// ** Navigation
+#{$selector} {
+  width: 80%;
+  margin: 40px auto;
+  background: variables.$gray-light;
+  padding: 30px;
+  &__container {
+    padding:10px;
+    background: variables.$white-light;
+  }
+}
